@@ -1,0 +1,25 @@
+{
+  "name": "admin-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "admin-shop": "www.js"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "socket.io",
+    "nodejs",
+    "express",
+    "password",
+    "mongodb"
+  ],
+  "author": "Богданов Илья <onesuch07@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}

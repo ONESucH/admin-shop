@@ -16,24 +16,24 @@
         <div class="img col-md-3">
             <img class="w-50 h-auto rounded-circle" src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg" alt="user">
         </div>
-        <div class="user flex-md-wrap d-md-block col-md-8 text-left">
-            <span class="col-md-12 flex-md-nowrap name">Name</span>
-            <span class="col-md-12 flex-md-nowrap family">Family</span>
+        <div class="user align-items-center position-relative flex-md-wrap d-md-block col-md-8 text-left ovf-hidden">
+            <span class="col-md-12 w-100 flex-md-nowrap name text-capitalize">Name</span>
+            <span class="col-md-12 w-100 flex-md-nowrap family text-capitalize">Family</span>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="alert alert-success text-center mt-md-3 pt-3 pb-3" role="alert">
-        <h2 class="alert-heading">Document download</h2>
+    <div class="alert alert-success text-center mt-md-3 pt-3 pb-3 shadow-lg" role="alert">
+        <h2 class="rounded alert-heading">Регистрация пользователя</h2>
     </div>
     <div class="input-text mt-5">
         <form class="form-group col-md12 justify-content-center text-center">
-            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp1" name="name" type="text" placeholder="Ваше имя" required></label>
-            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp2" name="family" type="text" placeholder="Ваша фамилия" required></label>
-            <button class="btn btn-dark col-md-3 pt-2 pb-2 m-auto">Добавить</button>
+            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp1" name="name" type="text" minlength="2" placeholder="Ваше имя" required></label>
+            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp2" name="family" type="text" minlength="2" placeholder="Ваша фамилия" required></label>
+            <button type="submit" class="btn btn-dark col-md-3 pt-2 pb-2 m-auto">Добавить</button>
         </form>
     </div>
-    <div class="result col-md-12 alert-danger mt-2 pt-2 pb-4 mt-2 ml-auto mr-auto mb-2 form-control">
+    <div class="result col-md-12 alert-danger mt-2 pt-2 pb-4 mt-2 ml-auto mr-auto mb-2 form-control shadow-lg">
         <h2 class="alert-danger text-center">Последние введённые данные</h2>
         <div class="list-group col-xl-12">
             <div class="row alert alert-primary mt-1 mb-1 p-2 ml-2">

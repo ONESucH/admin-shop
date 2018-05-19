@@ -1,17 +1,17 @@
 'use strict';
-const express = require('express'), // сервер
+const express = require('express'), // наше приложение с использованием express
     app = express(), // запуск main страницы
     port = 3000, // порт
-    logger = require('morgan'),
-    path = require('path'),
+    logger = require('morgan'), // отслеживание ошибок
+    path = require('path'), // дает возможность бегать по папкам
     mongoose = require('mongoose'); // драйвер для подключения к mongodb
 
 /* Подключаем mongodb */
 mongoose.connect('mongodb://localhost:27017/admin-shop', (err, db) => {
     
     if (err) throw err;
-
-    db.collection('users-data').find().toArray((err, result) => {
+    
+    db.collection('users-data').find().toArray((err, result) => { // подключаемся к коллекции
         if (err) throw err;
         console.log('mongodb connected in collection success');
     });
@@ -38,12 +38,12 @@ app.use('/page-5', (req, res) => {
 });
 /* ------------------ */
 
-/* 404 */
+/* error 404 */
 app.use((req, res, next) => {
     res.status(404).sendFile(__dirname + '/client/html/404/404.html');
 });
 
-/* 500 */
+/* error 500 */
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Что-то сломалось!');

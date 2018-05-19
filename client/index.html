@@ -24,9 +24,13 @@
         <h2 class="rounded alert-heading">Регистрация пользователя</h2>
     </div>
     <div class="input-text mt-5">
-        <form class="form-group col-md12 justify-content-center text-center">
-            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp1" name="name" type="text" minlength="2" placeholder="Ваше имя" required></label>
-            <label class="col-md-12 p-0"><input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp2" name="family" type="text" minlength="2" placeholder="Ваша фамилия" required></label>
+        <form class="form-group col-md12 justify-content-center text-center form">
+            <label class="col-md-12 p-0" for="inp1">
+                <input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp1" name="name" type="text" placeholder="Вова | Vova" pattern="[A-ZА-Я]{1}[а-яa-z]{2,20}[^\s]" required>
+            </label>
+            <label class="col-md-12 p-0" for="inp2">
+                <input class="warning col-md-12 pt-2 pb-2 pl-3 pr-0 form-control" id="inp2" name="family" type="text" placeholder="Петрович | Petrovich" pattern="[A-ZА-Я]{1}[а-яa-z]{2,20}[^\s]" required>
+            </label>
             <button type="submit" class="btn btn-dark col-md-3 pt-2 pb-2 m-auto">Добавить</button>
         </form>
     </div>

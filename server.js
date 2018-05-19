@@ -19,9 +19,8 @@ mongoose.connect('mongodb://localhost:27017/admin-shop', (err, db) => {
 });
 /* ------------------ */
 
-/* Роутинги для html */
+/* Под нужным url подгружаем html с внешними скриптами, стилями */
 app.use('/', express.static(__dirname + '/client'));
-
 app.use('/page-1', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-1/page-1.html'));
 });

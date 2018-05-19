@@ -38,6 +38,10 @@ app.use('/page-5', (req, res) => {
 });
 /* ------------------ */
 
+/* Следим за састоянием */
+
+/* ------------------ */
+
 /* error 404 */
 app.use((req, res, next) => {
     res.status(404).sendFile(__dirname + '/client/html/404/404.html');

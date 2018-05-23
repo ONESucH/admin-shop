@@ -1,6 +1,8 @@
 'use strict';
+
 $(document).ready(function () {
     
+    /* Ловим событие submit внутри формы */
     $('.form').submit(function(e) {
         
         e.preventDefault();
@@ -12,10 +14,25 @@ $(document).ready(function () {
             return false; // Если данные пустые
         }
 
-        let form = $('.form'),
-            data = form.serialize();
+        let form = $('.form');
         
-        console.log('data', data);
+        /* Отправим данные в Mongodb */
+        $.ajax({
+            url: '/reg',
+            method: 'POST',
+            dataType: 'json',
+            data: form.serialize(),
+            success: (result) => {
+                console.log('result', result);
+
+                setTimeout(() => {
+                    window.location = '/home';
+                }, 1000);
+            },
+            err: (err) => {
+                console.log('err', err);
+            }
+        });
         
         /* Запишем данные в localstorage */
         localStorage.setItem('name', inp1);

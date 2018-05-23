@@ -4,10 +4,12 @@ const express = require('express'), // наше приложение с испо
     port = 3000, // порт
     logger = require('morgan'), // отслеживание ошибок
     path = require('path'), // дает возможность бегать по папкам
-    mongoose = require('mongoose'); // драйвер для подключения к mongodb
+    bodyParser = require('body-parser'), // парсим в json
+    mongoose = require('mongoose'), // драйвер для подключения к mongodb
+    registration = require('./server/routers/user-router');
 
 /* Подключаем mongodb */
-mongoose.connect('mongodb://localhost:27017/admin-shop', (err, db) => {
+mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
     
     if (err) throw err;
     
@@ -18,6 +20,16 @@ mongoose.connect('mongodb://localhost:27017/admin-shop', (err, db) => {
     console.log('Mongodb working');
 });
 /* ------------------ */
+
+/* Шаблонизатор */
+
+/* ------------ */
+
+/* Парсим в json */
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+/* ------------- */
 
 /* Под нужным url подгружаем html с внешними скриптами, стилями */
 app.use('/', express.static(__dirname + '/client'));
@@ -38,8 +50,8 @@ app.use('/page-5', (req, res) => {
 });
 /* ------------------ */
 
-/* Следим за састоянием */
-
+/* Следим за састоянием(роутинг) */
+app.use(['/reg'], registration);
 /* ------------------ */
 
 /* error 404 */

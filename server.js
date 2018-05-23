@@ -2,10 +2,11 @@
 const express = require('express'), // наше приложение с использованием express
     app = express(), // запуск main страницы
     port = 3000, // порт
+    mongoose = require('mongoose'), // драйвер для подключения к mongodb
     logger = require('morgan'), // отслеживание ошибок
     path = require('path'), // дает возможность бегать по папкам
     bodyParser = require('body-parser'), // парсим в json
-    mongoose = require('mongoose'), // драйвер для подключения к mongodb
+    nunjucks = require('nunjucks'), // шаблонизатор
     registration = require('./server/routers/user-router');
 
 /* Подключаем mongodb */
@@ -22,8 +23,18 @@ mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
 /* ------------------ */
 
 /* Шаблонизатор */
-
+nunjucks.configure('./client', { // путь до корня проекта index.html
+    autoescape: true,
+    express: app,
+    watch: true
+});
 /* ------------ */
+
+/* Test */
+app.get('/', (req, res) => { // / - енпойнт
+    res.render('index.html');
+});
+/* ---- */
 
 /* Парсим в json */
 app.use(logger('dev'));

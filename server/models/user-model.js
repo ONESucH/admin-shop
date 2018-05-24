@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
-let UserRegistration = {
-    name: String,
-    family: String,
+module.exports = mongoose.model('Registration', {
+    nick: {type: String},
+    name: {type: String},
     updated_date: { type: Date, default: Date.now }
-};
-
-module.exports = mongoose.model('Registration', UserRegistration);
+});

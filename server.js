@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
     
     if (err) throw err;
     
-    db.collection('users-data').find().toArray((err, result) => { // подключаемся к коллекции
+    db.collection('users').find().toArray((err, result) => { // подключаемся к коллекции
         if (err) throw err;
         console.log('mongodb connected in collection success');
     });

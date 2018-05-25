@@ -7,7 +7,8 @@ const express = require('express'), // наше приложение с испо
     path = require('path'), // дает возможность бегать по папкам
     bodyParser = require('body-parser'), // парсим в json
     nunjucks = require('nunjucks'), // шаблонизатор
-    registration = require('./server/routers/user-router');
+    cookieParser = require('cookie-parser'), // Парсер куки
+    registration = require('./server/routers/user-router'); // роутер
 
 /* Подключаем mongodb */
 mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
@@ -18,6 +19,7 @@ mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
         if (err) throw err;
         console.log('mongodb connected in collection success');
     });
+    
     console.log('Mongodb working');
 });
 /* ------------------ */
@@ -30,14 +32,18 @@ nunjucks.configure('./client', { // путь до корня проекта inde
 });
 /* ------------ */
 
-/* Test */
+/* Рендеринг страниц по роутингу */
 app.get('/', (req, res) => { // / - енпойнт
     res.render('index.html');
+});
+app.get('/game-table', (req, res) => {
+    res.render('html/game-table/game-table.html');
 });
 /* ---- */
 
 /* Парсим в json */
 app.use(logger('dev'));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 /* ------------- */
@@ -49,6 +55,7 @@ app.use('/game-table', (req, res) => {
 });
 app.use('/sign-in', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/sign-in/sign-in.html'));
+    res.render(__dirname + '/client/html/sign-in/sign-in.html', {hash: req.header}); // Отправим hash пользователя
 });
 app.use('/page-1', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-1/page-1.html'));

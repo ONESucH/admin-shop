@@ -1,15 +1,40 @@
 <!doctype html>
-<html lang="кг">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Game-table</title>
+    <link rel="shortcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="/html/game-table/game-table.css">
 </head>
 <body>
-{% include "/../html/header/header.html" %}
+{% include "../header/header.html" %}
+<div class="app-game-table">
+    <div class="w-100 h-100 shadow" style="min-height: 100vh;">
+        <h2 class="text-center">Игравое табло</h2>
+        <div class="position-relative d-flex w-100 h-100 justify-content-between flex-nowrap align-items-stretch">
+            <div class="game-table w-100">
+                <button onclick="test()">Close chat</button>
+                <p>game-table</p>
+            </div>
+            <!--  -->
+            <div class="chat w-25 btn-dark">
+                <p>chat</p>
+            </div>
+            {% if chat %}
+            <div class="chat w-25 btn-dark">
+                <p>chat</p>
+            </div>
+            {% endif %}
+            <!--  -->
+        </div>
+    </div>
+</div>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/html/game-table/game-table.js"></script>
 </body>
 </html>

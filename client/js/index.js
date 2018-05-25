@@ -70,7 +70,7 @@ function saveData(inp1, inp2, form, json) {
         success: (result) => {
             console.log('result', result);
             setTimeout(() => {
-                //window.location = '/game-table';
+                window.location = '/sign-in';
             }, 1000);
         },
         err: (err) => {
@@ -78,20 +78,6 @@ function saveData(inp1, inp2, form, json) {
         }
     });
 
-    /* Запишем данные в localstorage */
-    localStorage.setItem('nick', inp1);
-    localStorage.setItem('name', inp2);
-
     // Чистим форму
     form[0].reset();
-
-    /* Вытащим данные из localstorage */
-    let name = localStorage.getItem('nick'),
-        family = localStorage.getItem('name');
-
-    $('.nick').html(name);
-    $('.name').html(family);
-
-    $('#nick').html(name);
-    $('#name').html(family);
 }

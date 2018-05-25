@@ -8,11 +8,17 @@ $(document).ready(() => {
         e.preventDefault();
 
         let inp1 = String($('#inp1').val()),
-            inp2 = String($('#inp2').val());
+            inp2 = String($('#inp2').val()),
+            pass = String($('#pass').val()),
+            resPass = String($('#rep_pass').val());
 
         if (inp1.length < 2 || inp2.length < 2) {
-            return false; // Если данные пустые
-        }
+            alert('Данные пустые или имеют не больше 3 символов');
+            return false;
+        } else if (pass !== resPass) {
+            alert('Пароли не совпадают');
+            return false;
+        } 
 
         let form = $('.form');
 
@@ -64,7 +70,7 @@ function saveData(inp1, inp2, form, json) {
         success: (result) => {
             console.log('result', result);
             setTimeout(() => {
-                //window.location = '/home';
+                //window.location = '/game-table';
             }, 1000);
         },
         err: (err) => {

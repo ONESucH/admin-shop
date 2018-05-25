@@ -44,6 +44,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 /* Под нужным url подгружаем html с внешними скриптами, стилями */
 app.use('/', express.static(__dirname + '/client'));
+app.use('/game-table', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/html/game-table/game-table.html'));
+});
+app.use('/sign-in', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/html/sign-in/sign-in.html'));
+});
 app.use('/page-1', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-1/page-1.html'));
 });

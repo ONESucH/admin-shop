@@ -1,6 +1,8 @@
 'use strict';
 const express = require('express'), // наше приложение с использованием express
     app = express(), // запуск main страницы
+    http = require('http').Server(app), // сервер socket.io
+    io = require('socket.io')(http), // сервер socket.io
     port = 3000, // порт
     mongoose = require('mongoose'), // драйвер для подключения к mongodb
     logger = require('morgan'), // отслеживание ошибок
@@ -78,6 +80,12 @@ app.use('/page-5', (req, res) => {
 app.use(['/reg'], registration);
 /* ------------------ */
 
+/* Socket.IO */
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+/* --------- */
+
 /* error 404 */
 app.use((req, res, next) => {
     res.status(404).sendFile(__dirname + '/client/html/404/404.html');
@@ -90,6 +98,6 @@ app.use((err, req, res, next) => {
 });
 
 /* Запуск сервера по порту */
-app.listen(port, () => {
+http.listen(port, () => {
     console.log('Сервер запущен localhost:' + port);
 });

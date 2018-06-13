@@ -7,6 +7,7 @@
     <title>Game-table</title>
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="/html/game-table/game-table.css">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 {% include "../header/header.html" %}
@@ -26,7 +27,7 @@
                 <div class="d-flex flex-wrap align-items-stretch w-100 h-100 more-tables">
                     
                     <!-- Пример карты -->
-                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center paper">
+                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center paper" onclick="eventUser('page-1')">
                         <div class="paper-title">
                             <h2>paper</h2>
                         </div>
@@ -36,7 +37,7 @@
                         </div>
                     </div>
                     <!-- ------------ -->
-                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center brainshtorm">
+                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center brainshtorm" onclick="eventUser('page-2')">
                         <div class="brainshtorm-title">
                             <h2>brainshtorm</h2>
                         </div>
@@ -45,7 +46,7 @@
                             <span>0 / 5</span>
                         </div>
                     </div>
-                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center kube">
+                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center kube" onclick="eventUser('page-3')">
                         <div class="kube-title">
                             <h2>kube</h2>
                         </div>
@@ -57,15 +58,13 @@
                 </div>
             </div>
             <!-- Chat -->
-            <form action="" class="position-relative chat w-25 btn-dark pt-5 pl-2 pr-2 pb-2" style="z-index: 1">
-                <div class="w-100" disabled>
-                    <div class="user-chat mt-2 p-3" disabled>
-                        <p class="m-0">asdasdasdasdasasdaas</p>
-                    </div>
-                </div>
+            <form id="chat-form" class="position-relative chat w-25 btn-dark pt-5 pl-2 pr-2 pb-2" style="z-index: 1">
+                <!-- Пример данных в чате -->
+                <div class="all-message w-100" disabled></div>
+                <!-- Ввод текста -->
                 <div class="user-write-message text-center">
                     <label class="col-md-10 m-auto">
-                        <textarea class="w-100 text-left mt-2"></textarea>
+                        <textarea class="w-100 text-left mt-2" id="user-text"></textarea>
                         <button type="submit" class="btn-primary w-100 pt-3 pb-3 box-shadow">Отправить</button>
                     </label>
                 </div>

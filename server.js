@@ -6,7 +6,7 @@ const express = require('express'), // наше приложение с испо
     logger = require('morgan'), // отслеживание ошибок
     path = require('path'), // дает возможность бегать по папкам
     bodyParser = require('body-parser'), // парсим в json
-    nunjucks = require('nunjucks'), // шаблонизатор
+    nunjucks = require('nunjucks'), // шаблонизатор - nunjucks
     cookieParser = require('cookie-parser'), // Парсер куки
     registration = require('./server/routers/user-router'); // роутер
 

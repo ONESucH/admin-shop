@@ -24,7 +24,7 @@ mongoose.connect('mongodb://localhost/admin-shop', (err, db) => {
 });
 /* ------------------ */
 
-/* Шаблонизатор */
+/* Шаблонизатор - Nunjucks */
 nunjucks.configure('./client', { // путь до корня проекта index.html
     autoescape: true,
     express: app,

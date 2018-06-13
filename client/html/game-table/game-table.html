@@ -11,12 +11,14 @@
 </head>
 <body>
 {% include "../header/header.html" %}
-<div class="app-game-table">
-    <div class="w-100 h-100 shadow" style="min-height: 100vh;">
+<div class="app-game-table h-100">
+    <div class="shadow h-100">
         <h2 class="text-center">Игравое табло</h2>
         <div class="position-relative d-flex w-100 h-100 justify-content-between flex-nowrap align-items-stretch">
             <div class="game-table w-100">
-                <button onclick="test()">Close chat</button>
+                <div class="fixed-button">
+                    <button onclick="chatShowHide()">Close chat</button>
+                </div>
                 <p>game-table</p>
             </div>
             <!--  -->

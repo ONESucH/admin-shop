@@ -16,7 +16,8 @@
 }
 body {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
+  height: 100vh;
 }
 /* Header */
 header {
@@ -38,9 +39,6 @@ header {
 }
 /* ------------ */
 .app-game-table {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
   background: -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, -webkit-radial-gradient(at 50% 0, #484847, #090909);
   background: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, radial-gradient(at 50% 0, #484847, #090909);
   background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;

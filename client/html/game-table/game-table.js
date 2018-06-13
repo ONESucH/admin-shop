@@ -1,13 +1,14 @@
 'use strict';
-console.log('Game-table downloding');
 let chat = false;
 
 $(document).ready(function () {
     
-    $('.chat').hide();
+    $('.chat').hide(); // hide chat
+    $('#nickname').html(localStorage.getItem('nick')); // paste data - nick
     
 });
 
+/* Toogle chat */
 function chatShowHide() {
     chat = !chat;
 

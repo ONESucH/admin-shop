@@ -7,3 +7,47 @@
   background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;
   color: #fff;
 }
+
+.game-news {
+  background: black;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    animation: news 20s infinite ease;
+  }
+}
+
+.fixed-button {
+  top: auto;
+  right: 15px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    cursor: pointer;
+    border: none;
+    color: #000;
+    outline: none;
+    &:hover {
+      transition: .8s;
+      transform: rotate(180deg);
+    }
+  }
+  i {
+    font-size: 25px;
+  }
+}
+
+@keyframes news {
+  100% {
+    left: calc(100%);
+  }
+}

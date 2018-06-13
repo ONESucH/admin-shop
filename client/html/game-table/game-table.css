@@ -21,10 +21,9 @@ body {
 }
 /* Header */
 header {
-  background: rgba(0, 0, 0, 0.8);
+  background: #030102;
   padding: 10px 0;
   z-index: 999;
-  box-shadow: inset 0 0 10px 1px #fff;
 }
 .user {
   width: 40px;
@@ -43,5 +42,46 @@ header {
   background: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, radial-gradient(at 50% 0, #484847, #090909);
   background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;
   color: #fff;
+}
+.game-news {
+  background: black;
+}
+.game-news:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  animation: news 20s infinite ease;
+}
+.fixed-button {
+  top: auto;
+  right: 15px;
+}
+.fixed-button button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  cursor: pointer;
+  border: none;
+  color: #000;
+  outline: none;
+}
+.fixed-button button:hover {
+  transition: .8s;
+  transform: rotate(180deg);
+}
+.fixed-button i {
+  font-size: 25px;
+}
+@keyframes news {
+  100% {
+    left: calc(100%);
+  }
 }
 /*# sourceMappingURL=game-table.css.map */

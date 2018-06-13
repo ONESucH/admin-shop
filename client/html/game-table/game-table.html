@@ -13,24 +13,23 @@
 {% include "../header/header.html" %}
 <div class="app-game-table h-100">
     <div class="shadow h-100">
-        <h2 class="text-center">Игравое табло</h2>
+        <div class="game-news position-relative">
+            <h2 class="text-center m-0">Игравое табло</h2>
+        </div>
         <div class="position-relative d-flex w-100 h-100 justify-content-between flex-nowrap align-items-stretch">
-            <div class="game-table w-100">
-                <div class="fixed-button">
-                    <button onclick="chatShowHide()">Close chat</button>
+            <!-- Game table -->
+            <div class="game-table w-100 p-3" disabled>
+                <div class="fixed-button position-fixed">
+                    <button class="btn-primary" onclick="chatShowHide()">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
                 </div>
                 <p>game-table</p>
             </div>
-            <!--  -->
+            <!-- Chat -->
             <div class="chat w-25 btn-dark">
                 <p>chat</p>
             </div>
-            {% if chat %}
-            <div class="chat w-25 btn-dark">
-                <p>chat</p>
-            </div>
-            {% endif %}
-            <!--  -->
         </div>
     </div>
 </div>

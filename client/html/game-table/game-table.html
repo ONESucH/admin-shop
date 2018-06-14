@@ -7,7 +7,6 @@
     <title>Game-table</title>
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <link rel="stylesheet" href="/html/game-table/game-table.css">
-    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 {% include "../header/header.html" %}
@@ -58,21 +57,23 @@
                 </div>
             </div>
             <!-- Chat -->
-            <form id="chat-form" class="position-relative chat w-25 btn-dark pt-5 pl-2 pr-2 pb-2" style="z-index: 1">
+            <div class="position-relative chat w-25 pt-5 pl-2 pr-2 pb-2" style="z-index: 1">
                 <!-- Пример данных в чате -->
                 <div class="all-message w-100" disabled></div>
                 <!-- Ввод текста -->
                 <div class="user-write-message text-center">
                     <label class="col-md-10 m-auto">
                         <textarea class="w-100 text-left mt-2" id="user-text"></textarea>
-                        <button type="submit" class="btn-primary w-100 pt-3 pb-3 box-shadow">Отправить</button>
+                        <button id="paste-message" class="btn-primary w-100 pt-3 pb-3 box-shadow">Отправить</button>
                     </label>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 
+<script src="/socket.io/socket.io.js"></script>
+<script>let socket = io();</script>
 <script src="/vendor/jquery/dist/jquery.min.js"></script>
 <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/html/game-table/game-table.js"></script>

@@ -99,7 +99,13 @@ app.use(['/reg'], registration);
 io.on('connection', (socket) => {
     console.log('user connected');
     
+    // User disconnect
     socket.on('disconnect', () => console.log('User disconnect'));
+    
+    // User message
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
+    });
 });
 /* --------- */
 

@@ -1,15 +1,9 @@
 'use strict';
-
 let findUser = localStorage.getItem('nick');
 
 if (!findUser) window.location.href = '/';
 
 let chat = false;
-let socket = io();
-
-$(document).ready(function () {
-    $('.chat').hide(); // hide chat
-});
 
 /* Toogle chat */
 function chatShowHide() {
@@ -26,16 +20,25 @@ function chatShowHide() {
     }
 }
 
+$(document).ready(() => {
+    $('.chat').hide(); // hide chat
+});
+
 /* Рендерим чат */
-$('#chat-form').submit((e) => {
-    e.preventDefault();
-    
-    let data = $('#user-text').val();
-    
-    $('.all-message').prepend('<div class="user-chat mt-2 p-3" disabled><p class="m-0"><span>' + localStorage.getItem('nick') + '</span>: ' + data +'</p></div>');
+$('#paste-message').on('click', () => {
+    let message = $('#user-text').val();
+
+    if (message == '') return false;
+
+    // отправляем команде данные
+    socket.on('chat message', (msg) => {
+        $('.all-message').prepend('<div class="user-chat mt-2 p-2"><p class="m-0"><span>'+findUser+'</span>: '+msg+'</p></div>');
+    });
+    socket.emit('chat message', message);
 
     $('#user-text').val('');
 });
+
 
 /* бегаем по столам */
 function eventUser(event) {

@@ -1,12 +1,14 @@
 'use strict';
+
+let findUser = localStorage.getItem('nick');
+
+if (!findUser) window.location.href = '/';
+
 let chat = false;
 let socket = io();
 
 $(document).ready(function () {
-
     $('.chat').hide(); // hide chat
-    $('#nickname').html(localStorage.getItem('nick')); // paste data - nick
-
 });
 
 /* Toogle chat */

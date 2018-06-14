@@ -41,7 +41,22 @@ app.get('/', (req, res) => { // / - енпойнт
 app.get('/game-table', (req, res) => {
     res.render('html/game-table/game-table.html');
 });
-/* ---- */
+app.get('/page-1', (req, res) => {
+    res.render('html/page-1/page-1.html');
+});
+app.get('/page-2', (req, res) => {
+    res.render('html/page-2/page-2.html');
+});
+app.get('/page-3', (req, res) => {
+    res.render('html/page-3/page-3.html');
+});
+app.get('/page-4', (req, res) => {
+    res.render('html/page-4/page-4.html');
+});
+app.get('/page-5', (req, res) => {
+    res.render('html/page-5/page-5.html');
+});
+/* ---------------------------- */
 
 /* Парсим в json */
 app.use(logger('dev'));
@@ -82,7 +97,9 @@ app.use(['/reg'], registration);
 
 /* Socket.IO */
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('user connected');
+    
+    socket.on('disconnect', () => console.log('User disconnect'));
 });
 /* --------- */
 

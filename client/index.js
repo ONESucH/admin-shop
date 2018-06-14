@@ -68,7 +68,6 @@ function saveData(inp1, inp2, form, json) {
         dataType: 'json',
         data: json,
         success: (result) => {
-            console.log('result', result);
             setTimeout(() => {
                 window.location = '/sign-in';
             }, 1000);

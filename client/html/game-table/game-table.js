@@ -1,5 +1,6 @@
 'use strict';
-let findUser = localStorage.getItem('nick');
+let socket = io(),
+    findUser = localStorage.getItem('nick');
 
 if (!findUser) window.location.href = '/';
 
@@ -29,16 +30,16 @@ $('#paste-message').on('click', () => {
     let message = $('#user-text').val();
 
     if (message == '') return false;
-
-    // отправляем команде данные
-    socket.on('chat message', (msg) => {
-        $('.all-message').prepend('<div class="user-chat mt-2 p-2"><p class="m-0"><span>'+findUser+'</span>: '+msg+'</p></div>');
-    });
+    
     socket.emit('chat message', message);
 
     $('#user-text').val('');
 });
 
+/* отправляем команде данные(не сувать внутрь функций - будет плагиат) */
+socket.on('chat message', (msg) => {
+    $('.all-message').prepend('<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3"><p class="m-0"><span>'+findUser+'</span>: '+msg+'</p></div>');
+});
 
 /* бегаем по столам */
 function eventUser(event) {

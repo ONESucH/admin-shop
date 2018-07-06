@@ -37,14 +37,15 @@ header {
   color: #fff;
 }
 /* ------------ */
-.app-game-table {
-  background: -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, -webkit-radial-gradient(at 50% 0, #484847, #090909);
-  background: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, radial-gradient(at 50% 0, #484847, #090909);
-  background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;
-  color: #fff;
-}
 .game-news {
   background: black;
+  color: #fff;
+}
+.game-news a,
+.game-news span,
+.game-news p,
+.game-news i {
+  color: #fff;
 }
 .game-news:after {
   content: '';
@@ -55,6 +56,17 @@ header {
   bottom: 0;
   background: black;
   animation: news 20s infinite ease;
+}
+@keyframes news {
+  100% {
+    left: calc(100%);
+  }
+}
+.app-game-table {
+  background: -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, -webkit-radial-gradient(at 50% 0, #484847, #090909);
+  background: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, radial-gradient(at 50% 0, #484847, #090909);
+  background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;
+  color: #fff;
 }
 .user-chat {
   border-radius: 8px;
@@ -139,10 +151,5 @@ header {
 .kube {
   background: url('../../img/card-tables-background/kube.jpg') no-repeat center;
   background-size: cover;
-}
-@keyframes news {
-  100% {
-    left: calc(100%);
-  }
 }
 /*# sourceMappingURL=game-table.css.map */

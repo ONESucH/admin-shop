@@ -37,4 +37,29 @@ header {
   color: #fff;
 }
 /* ------------ */
+.game-news {
+  background: black;
+  color: #fff;
+}
+.game-news a,
+.game-news span,
+.game-news p,
+.game-news i {
+  color: #fff;
+}
+.game-news:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: black;
+  animation: news 20s infinite ease;
+}
+@keyframes news {
+  100% {
+    left: calc(100%);
+  }
+}
 /*# sourceMappingURL=page-2.style.css.map */

@@ -34,30 +34,6 @@ nunjucks.configure('./client', { // путь до корня проекта inde
 });
 /* ------------ */
 
-/* Рендеринг страниц по роутингу */
-app.get('/', (req, res) => { // / - енпойнт
-    res.render('index.html');
-});
-app.get('/game-table', (req, res) => {
-    res.render('html/game-table/game-table.html');
-});
-app.get('/page-1', (req, res) => {
-    res.render('html/page-1/page-1.html');
-});
-app.get('/page-2', (req, res) => {
-    res.render('html/page-2/page-2.html');
-});
-app.get('/page-3', (req, res) => {
-    res.render('html/page-3/page-3.html');
-});
-app.get('/page-4', (req, res) => {
-    res.render('html/page-4/page-4.html');
-});
-app.get('/page-5', (req, res) => {
-    res.render('html/page-5/page-5.html');
-});
-/* ---------------------------- */
-
 /* Парсим в json */
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -69,25 +45,31 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', express.static(__dirname + '/client'));
 app.use('/game-table', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/game-table/game-table.html'));
+    res.render('html/game-table/game-table.html', {title: 'Игровые новости'});
 });
 app.use('/sign-in', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/sign-in/sign-in.html'));
-    res.render(__dirname + '/client/html/sign-in/sign-in.html', {hash: req.header}); // Отправим hash пользователя
+    res.render('html/sign-in/sign-in.html', {hash: 'hash'}); // Отправим hash пользователя
 });
 app.use('/page-1', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-1/page-1.html'));
+    res.render('html/page-1/page-1.html', {title: 'Paper'});
 });
 app.use('/page-2', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-2/page-2.html'));
+    res.render('html/page-2/page-2.html', {title: 'Brainshtorm'});
 });
 app.use('/page-3', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-3/page-3.html'));
+    res.render('html/page-3/page-3.html', {title: 'Kube'});
 });
 app.use('/page-4', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-4/page-4.html'));
+    res.render('html/page-4/page-4.html', {title: 'Title-4'});
 });
 app.use('/page-5', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-5/page-5.html'));
+    res.render('html/page-5/page-5.html', {title: 'Title-5'});
 });
 /* ------------------ */
 

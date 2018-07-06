@@ -2,7 +2,7 @@
 const express = require('express'), // наше приложение с использованием express
     app = express(), // запуск main страницы
     http = require('http').Server(app), // сервер socket.io
-    io = require('socket.io')(http), // сервер socket.io
+    io = require('socket.io')(http), // для socket.io укажем сервер
     port = 3000, // порт
     mongoose = require('mongoose'), // драйвер для подключения к mongodb
     logger = require('morgan'), // отслеживание ошибок
@@ -85,8 +85,9 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => console.log('User disconnect'));
     
     // User message
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+    socket.on('chat message', (nick, msg) => {
+        socket.broadcast.emit('user connected');
+        io.emit('chat message', nick, msg);
     });
 });
 /* --------- */

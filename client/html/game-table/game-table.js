@@ -40,16 +40,14 @@ function chatShowHide() {
 $('#paste-message').on('click', () => {
     let message = $('#user-text').val();
 
-    if (message == '') return false;
-    
-    socket.emit('chat message', message);
+    if (message !== '') socket.emit('chat message', findUser.nick, message);
 
     $('#user-text').val('');
 });
 
 /* отправляем команде данные(не сувать внутрь функций - будет плагиат) */
-socket.on('chat message', (msg) => {
-    $('.all-message').prepend('<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3"><p class="m-0"><span>'+findUser.nick+'</span>: '+msg+'</p></div>');
+socket.on('chat message', (nick, msg) => {
+    $('.all-message').prepend('<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3"><p class="m-0"><span>'+nick+'</span>: '+msg+'</p></div>');
 });
 
 /* бегаем по столам */

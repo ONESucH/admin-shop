@@ -73,6 +73,9 @@ header {
   background: grey;
   color: #fff;
 }
+.user-chat p {
+  word-wrap: break-word;
+}
 .user-chat span {
   color: #000;
   font-weight: bold;

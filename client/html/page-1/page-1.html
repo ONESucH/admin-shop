@@ -9,7 +9,14 @@
 </head>
 <body>
 {% include "../header/header.html" %}
-<h1>Page-1</h1>
+<div class="app-papers">
+    <!-- Информационное табло -->
+    {% include "../components/news/news.html" %}
+    <!-- ------- -->
+    <div class="papers">
+        <h2>page-1</h2>
+    </div>
+</div>
 
 <script src="/vendor/jquery/dist/jquery.min.js"></script>
 <script src="/html/page-1/page-1.main.js"></script>

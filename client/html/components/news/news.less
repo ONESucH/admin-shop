@@ -1,0 +1,23 @@
+.game-news {
+  background: black;
+  color: #fff;
+  a, span, p, i {
+    color: #fff;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    animation: news 20s infinite ease;
+  }
+}
+
+@keyframes news {
+  100% {
+    left: calc(100%);
+  }
+}

@@ -26,5 +26,8 @@
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "font-awesome": "^5.0.13"
+  },
+  "devDependencies": {
+    "font-awesome": "5.1.0"
   }
 }

@@ -12,9 +12,9 @@
 {% include "../header/header.html" %}
 <div class="app-game-table h-100">
     <div class="shadow h-100">
-        <div class="game-news position-relative">
-            <h2 class="text-center m-0">Игравое табло</h2>
-        </div>
+        <!-- Новости -->
+        {% include "../components/news/news.html" %}
+        <!-- ------- -->
         <div class="position-relative d-flex w-100 h-100 justify-content-between flex-nowrap align-items-stretch">
             <!-- Game table -->
             <div class="game-table w-100 p-3" style="z-index: 2">

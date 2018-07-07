@@ -1,5 +1,6 @@
 @import '../../libraries';
 @import '../../global-styles';
+@import '../components/news/news';
 
 .app-game-table {
   background: -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%), -webkit-linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%) 0.1875em 0.1875em, -webkit-radial-gradient(at 50% 0, #484847, #090909);
@@ -8,24 +9,13 @@
   color: #fff;
 }
 
-.game-news {
-  background: black;
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: black;
-    animation: news 20s infinite ease;
-  }
-}
-
 .user-chat {
   border-radius: 8px;
   background: grey;
   color: #fff;
+  p {
+    word-wrap: break-word;
+  }
   span {
     color: #000;
     font-weight: bold;
@@ -110,11 +100,4 @@
 .kube {
   background: url('../../img/card-tables-background/kube.jpg') no-repeat center;
   background-size: cover;
-}
-
-
-@keyframes news {
-  100% {
-    left: calc(100%);
-  }
 }

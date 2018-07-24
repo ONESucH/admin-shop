@@ -75,8 +75,11 @@ header {
 }
 .user-chat p {
   word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .user-chat span {
+  float: left;
   color: #000;
   font-weight: bold;
 }

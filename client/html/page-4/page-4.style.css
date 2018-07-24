@@ -94,6 +94,13 @@ header {
   overflow-x: hidden;
   border-radius: 6px;
 }
+.message-user span {
+  float: left;
+  font-weight: 900;
+}
+.message-user img {
+  float: left;
+}
 .message-user p {
   overflow: hidden;
   text-overflow: ellipsis;

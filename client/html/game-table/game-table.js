@@ -47,7 +47,10 @@ $('#paste-message').on('click', () => {
 
 /* отправляем команде данные(не сувать внутрь функций - будет плагиат) */
 socket.on('chat message', (nick, msg) => {
-    $('.all-message').prepend('<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3"><p class="m-0"><span>'+nick+'</span>: '+msg+'</p></div>');
+    $('.all-message').prepend('' +
+        '<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3">' +
+            '<p class="m-0"><span>'+nick+'&#8195;</span>'+msg+'</p>' +
+        '</div>');
 });
 
 /* бегаем по столам */

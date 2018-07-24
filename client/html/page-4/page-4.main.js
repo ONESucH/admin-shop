@@ -14,8 +14,8 @@ $('form').submit((e) => {
 
     $('.all-message-user').prepend(
         '<div class="message-user">\n' +
-        '   <p class="d-inline-block w-100">\n'+
-        '   <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg">'+findUser+': '+message+'</p>' +
+        '   <p class="d-inline-block w-100">'+
+        '   <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg"><span>'+findUser+'&#8195;</span>'+message+'</p>' +
         '</div>'
     );
     

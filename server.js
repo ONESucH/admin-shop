@@ -84,10 +84,16 @@ io.on('connection', (socket) => {
     // User disconnect
     socket.on('disconnect', () => console.log('User disconnect'));
     
-    // User message
+    // Main chat
     socket.on('chat message', (nick, msg) => {
         socket.broadcast.emit('user connected');
         io.emit('chat message', nick, msg);
+    });
+
+    // Guess chat
+    socket.on('chat guess', (nick, msg) => {
+        socket.broadcast.emit('user connected in guess chat');
+        io.emit('chat guess', nick, msg);
     });
 });
 /* --------- */

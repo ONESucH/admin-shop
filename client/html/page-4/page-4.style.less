@@ -7,6 +7,12 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+.rules-of-the-game pre {
+  padding-top: 10px;
+  border-bottom: 2px solid #eb2945;
+  color: #fff;
+}
+
 .game-chat {
   background: #0c5460;
   border-radius: 8px 8px 0 0;
@@ -29,11 +35,12 @@
 .message-user {
   position: sticky;
   top: 2px;
-  overflow: hidden;
+  overflow-x: hidden;
   border-radius: 6px;
   p {
-    overflow-y: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
+    word-wrap: break-word;
     max-height: 85px;
     background: #31caff;
     text-shadow: 0 0 2px black;
@@ -52,4 +59,16 @@
   min-width: 40px;
   max-height: 40px;
   min-height: 40px;
+}
+
+.submit {
+  cursor: pointer;
+  background: #eb2945;
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  transition: .8s;
+  &:hover {
+    background: #ff2a48;
+  }
 }

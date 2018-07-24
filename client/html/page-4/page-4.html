@@ -9,12 +9,46 @@
 </head>
 <body>
 {% include "../header/header.html" %}
-<div class="app-guess">
+<div class="app-guess position-relative h-100">
     <!-- Информационное табло -->
     {% include "../components/news/news.html" %}
     <!-- ------- -->
-    <div class="guess">
-        <h2>page-4</h2>
+    <div class="guess h-75">
+        <!-- Правила игры -->
+        <div class="rules-of-the-game">
+            <p>Правила игры:<br>
+                Задача игроков угадать нужную цифру у своих противников.
+            </p>
+        </div>
+    </div>
+    <!-- игровой чат -->
+    <div class="game-chat position-fixed fixed-bottom w-100">
+        <div class="more-users">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="75" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+            <div class="all-message-user">
+                <!-- Пример одного сообщения -->
+                <div class="message-user">
+                    <p class="d-inline-block">
+                        <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg" alt="user-undefined">
+                        какой-то текст какой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то тексткакой-то текст
+                    </p>
+                </div>
+                <div class="message-user">
+                    <p class="d-inline-block w-100">
+                        <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg" alt="user-undefined">
+                        Привет пупкин
+                    </p>
+                </div>
+            </div>
+        </div>
+        <form class="block-form w-100">
+            <label class="d-flex flex-nowrap w-100">
+                <input type="text" placeholder="Введите сообщение" class="p-2 w-75">
+                <input type="submit" class="p-2 w-25">
+            </label>
+        </form>
     </div>
 </div>
 

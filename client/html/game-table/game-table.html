@@ -19,9 +19,7 @@
             <!-- Game table -->
             <div class="game-table w-100 p-3" style="z-index: 2">
                 <div class="fixed-button position-fixed">
-                    <button class="btn-primary" onclick="chatShowHide()">
-                        <i class="fa fa-times" aria-hidden="true"></i>
-                    </button>
+                    <button class="btn-primary" onclick="chatShowHide()"><i class="fa fa-times" aria-hidden="true"></i></button>
                 </div>
                 <div class="d-flex flex-wrap align-items-stretch w-100 h-100 more-tables">
                     
@@ -31,8 +29,7 @@
                             <h2>paper</h2>
                         </div>
                         <div class="paper-body">
-                            <p>Сейчас занято</p>
-                            <span>0 / 5</span>
+                            <p>В разработке</p>
                         </div>
                     </div>
                     <!-- ------------ -->
@@ -41,8 +38,7 @@
                             <h2>brainshtorm</h2>
                         </div>
                         <div class="brainshtorm-body">
-                            <p>Сейчас занято</p>
-                            <span>0 / 5</span>
+                            <p>В разработке</p>
                         </div>
                     </div>
                     <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center kube" onclick="eventUser('page-3')">
@@ -50,8 +46,15 @@
                             <h2>kube</h2>
                         </div>
                         <div class="kube-body">
-                            <p>Сейчас занято</p>
-                            <span>0 / 5</span>
+                            <p>В разработке</p>
+                        </div>
+                    </div>
+                    <div class="card-table d-flex flex-column justify-content-center align-content-center mr-2 mb-2 text-center guess" onclick="eventUser('page-4')">
+                        <div class="kube-title">
+                            <h2>guess</h2>
+                        </div>
+                        <div class="kube-body">
+                            <p>Можно войти</p>
                         </div>
                     </div>
                 </div>
@@ -59,7 +62,7 @@
             <!-- Chat -->
             <div class="position-relative chat w-25 pt-5 pl-2 pr-2 pb-2" style="z-index: 1">
                 <!-- Пример данных в чате -->
-                <div class="all-message w-100" disabled></div>
+                <div class="all-message w-100"></div>
                 <!-- Ввод текста -->
                 <div class="user-write-message text-center">
                     <label class="col-md-10 m-auto">

@@ -132,6 +132,7 @@ header {
   min-height: 400px;
   max-height: 400px;
   max-width: 250px;
+  cursor: pointer;
 }
 .card-table h2 {
   text-transform: uppercase;
@@ -153,6 +154,10 @@ header {
 }
 .kube {
   background: url('../../img/card-tables-background/kube.jpg') no-repeat center;
+  background-size: cover;
+}
+.guess {
+  background: url('../../img/card-tables-background/guess.jpg') no-repeat center;
   background-size: cover;
 }
 /*# sourceMappingURL=game-table.css.map */

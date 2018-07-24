@@ -65,7 +65,7 @@ app.use('/page-3', (req, res) => {
 });
 app.use('/page-4', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-4/page-4.html'));
-    res.render('html/page-4/page-4.html', {title: 'Title-4'});
+    res.render('html/page-4/page-4.html', {title: 'Guess'});
 });
 app.use('/page-5', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-5/page-5.html'));

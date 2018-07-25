@@ -23,7 +23,8 @@ $(document).ready(() => {
 $('form').submit((e) => {
     e.preventDefault();
     
-    let message = $('#user-message').val();
+    let message = String($('#user-message').val().split(/<script>/)); // Чистим спец. символы
+    console.log('message', message);
     
     if (message === '') return false;
 
@@ -40,9 +41,9 @@ $('form').submit((e) => {
 /* Рендерим чат в игре guess */
 socket.on('chat guess', (nick, msg) => {
     $('.all-message-user').prepend(
-        '<div class="message-user">' +
+        '<div class="message-user">'+
         '   <p class="d-inline-block w-100">'+
-        '   <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg"><span>'+nick+'&#8195;</span>'+msg+'</p>' +
+        '   <img class="rounded-circle user d-inline-block w-auto m-2" src="../../img/user-undefined.jpg"><span>'+nick+'&#8195;</span>'+msg+'</p>'+
         '</div>'
     );
 });

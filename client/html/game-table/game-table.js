@@ -38,7 +38,7 @@ function chatShowHide() {
 
 /* Рендерим чат */
 $('#paste-message').on('click', () => {
-    let message = $('#user-text').val();
+    let message = String($('#user-text').val().split(/<script>/)); // Чистим спец. символы
 
     if (message !== '') socket.emit('chat message', findUser.nick, message);
 

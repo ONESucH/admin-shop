@@ -27,7 +27,7 @@ $(document).ready(() => {
             url: '/reg',
             method: 'GET',
             success: (users) => {
-                console.log('users', users);
+                
                 if (!users) return false;
 
                 let json = form.serialize(),
@@ -68,8 +68,9 @@ function saveData(inp1, inp2, form, json) {
         dataType: 'json',
         data: json,
         success: (result) => {
+            localStorage.setItem('id', result._id);
             setTimeout(() => {
-                window.location = '/sign-in';
+                window.location = '/game-table';
             }, 1000);
         },
         err: (err) => {

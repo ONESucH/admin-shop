@@ -11,12 +11,12 @@ $(document).ready(() => {
         url: 'reg',
         success: (req) => {
             req.forEach((item, i, arr) => {
-                if (item.nick === localStorage.getItem('nick')) {
+                if (item._id === localStorage.getItem('id')) {
                      $.extend(findUser, arr[i]);
                 }
             });
 
-            if (localStorage.getItem('nick') !== findUser.nick) window.location.href = '/';
+            if (localStorage.getItem('id') !== findUser._id) window.location.href = '/';
         }
     });
 });

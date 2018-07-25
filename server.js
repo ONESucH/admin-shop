@@ -79,7 +79,7 @@ app.use(['/reg'], registration);
 
 /* Socket.IO */
 io.on('connection', (socket) => {
-    console.log('user connected');
+    console.log('connected success');
     
     // User disconnect
     socket.on('disconnect', () => console.log('User disconnect'));

@@ -11,11 +11,11 @@
 <body>
 {% include "../header/header.html" %}
 <div class="app-game-table h-100">
-    <div class="shadow h-100">
+    <div class="shadow position-relative h-100">
         <!-- Новости -->
         {% include "../components/news/news.html" %}
         <!-- ------- -->
-        <div class="position-relative d-flex w-100 h-100 justify-content-between flex-nowrap align-items-stretch">
+        <div class="position-relative d-flex justify-content-between flex-nowrap align-items-stretch h-100">
             <!-- Game table -->
             <div class="game-table w-100 p-3" style="z-index: 2">
                 <div class="fixed-button position-fixed">
@@ -64,12 +64,12 @@
                 <!-- Пример данных в чате -->
                 <div class="all-message w-100"></div>
                 <!-- Ввод текста -->
-                <div class="user-write-message text-center">
+                <form class="user-write-message text-center">
                     <label class="col-md-10 m-auto">
-                        <textarea class="w-100 text-left mt-2" id="user-text"></textarea>
-                        <button id="paste-message" class="btn-primary w-100 pt-3 pb-3 box-shadow">Отправить</button>
+                        <input type="text" class="w-100 text-left mt-2 p-2" id="user-text">
+                        <input type="submit" class="btn-primary w-100 pt-3 pb-3 box-shadow">
                     </label>
-                </div>
+                </form>
             </div>
         </div>
     </div>

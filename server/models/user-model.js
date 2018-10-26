@@ -5,4 +5,4 @@ module.exports = mongoose.model('Registration', {
     name: {type: String, request: true},
     pass: {type: String, request: true},
     updated_date: {type: Date, default: Date.now}
-});
+})

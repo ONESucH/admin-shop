@@ -1,0 +1,4 @@
+.idea
+*.sln
+node_modules
+*-lock.json

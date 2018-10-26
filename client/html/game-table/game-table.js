@@ -11,12 +11,12 @@ $(document).ready(() => {
         url: 'reg',
         success: (req) => {
             req.forEach((item, i, arr) => {
-                if (item.nick === localStorage.getItem('nick')) {
+                if (item._id === localStorage.getItem('id')) {
                      $.extend(findUser, arr[i]);
                 }
             });
 
-            if (localStorage.getItem('nick') !== findUser.nick) window.location.href = '/';
+            if (localStorage.getItem('id') !== findUser._id) window.location.href = '/';
         }
     });
 });
@@ -37,8 +37,11 @@ function chatShowHide() {
 }
 
 /* Рендерим чат */
-$('#paste-message').on('click', () => {
-    let message = $('#user-text').val();
+$('.user-write-message').on('submit', (e) => {
+    
+    e.preventDefault();
+    
+    let message = String($('#user-text').val().split(/<script>/)); // Чистим спец. символы
 
     if (message !== '') socket.emit('chat message', findUser.nick, message);
 
@@ -47,7 +50,14 @@ $('#paste-message').on('click', () => {
 
 /* отправляем команде данные(не сувать внутрь функций - будет плагиат) */
 socket.on('chat message', (nick, msg) => {
-    $('.all-message').prepend('<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3"><p class="m-0"><span>'+nick+'</span>: '+msg+'</p></div>');
+    $('.all-message').prepend('' +
+        '<div class="user-chat mt-2 pt-2 pb-2 pl-3 pr-3">' +
+            '<p class="m-0"><span>'+nick+'&#8195;</span>'+msg+'</p>' +
+        '</div>');
+    
+    if ($('.user-chat').length > 3) {
+        $('.user-chat')[3].remove();
+    } 
 });
 
 /* бегаем по столам */

@@ -65,7 +65,7 @@ app.use('/page-3', (req, res) => {
 });
 app.use('/page-4', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-4/page-4.html'));
-    res.render('html/page-4/page-4.html', {title: 'Title-4'});
+    res.render('html/page-4/page-4.html', {title: 'Guess'});
 });
 app.use('/page-5', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/html/page-5/page-5.html'));
@@ -79,15 +79,21 @@ app.use(['/reg'], registration);
 
 /* Socket.IO */
 io.on('connection', (socket) => {
-    console.log('user connected');
+    console.log('connected success');
     
     // User disconnect
     socket.on('disconnect', () => console.log('User disconnect'));
     
-    // User message
+    // Main chat
     socket.on('chat message', (nick, msg) => {
         socket.broadcast.emit('user connected');
         io.emit('chat message', nick, msg);
+    });
+
+    // Guess chat
+    socket.on('chat guess', (nick, msg) => {
+        socket.broadcast.emit('user connected in guess chat');
+        io.emit('chat guess', nick, msg);
     });
 });
 /* --------- */

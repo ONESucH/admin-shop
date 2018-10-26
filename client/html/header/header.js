@@ -1,7 +1,14 @@
 'use strict';
 
-$(document).ready(function () {
-    
-    $('#nickname').html(localStorage.getItem('nick')); // paste data - nick
-
+$(document).ready(() => {
+    $.ajax({
+        url: 'reg',
+        success: (req) => {
+            req.forEach((item, i, arr) => {
+                if (item._id === localStorage.getItem('id')) {
+                    $('#nickname').html(item.nick);
+                }
+            });
+        }
+    });
 });

@@ -2,8 +2,6 @@
 
 $(document).ready(() => {
 
-    let findUser;
-
     /* Делаем запрос для получения спика пользователей */
     $('.form-sign-in').submit((e) => {
         
@@ -19,25 +17,21 @@ $(document).ready(() => {
                 if (!users) return false;
                 
                 /* Проверяем есть ли этот пользователь */
-                const nick = String($('#nick').val()),
-                    pass = String($('#pass').val());
-
                 proccess = false;
 
                 /* Проверяем на совпадения */
                 users.forEach((item) => {
-                    if (String(item.nick) == nick && String(item.pass) == pass) {
-                        findUser = item;
+                    if (String(item.nick) === String($('#nick').val()) && String(item.pass) === String($('#pass').val())) {
                         proccess = true;
+                        
+                        /* Вошли и сохранили в LocalStorage */
+                        localStorage.setItem('id', item._id);
                     }
                 });
                 
                 if (!proccess) return false; // Если данных нет в БД стопим
-
-                /* Вошли и сохранили в LocalStorage */
-                localStorage.setItem('nick', nick);
                 
-                e.target.reset();
+                e.target.reset(); // чистим форму
 
                 window.location.href = '/game-table'; // перешли в основной стол
             }
